@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="9a172668-9414-47d6-9043-9d4ce9ed04ac" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<http:request-config name="HTTP_Request_configuration" doc:name="HTTP Request configuration" doc:id="9f71233d-61bd-4260-ba33-7f68d5f149ae" />
+	<flow name="test-projectFlow" doc:id="1d25ce00-523a-4e6f-9e27-7063f0dd5485" >
+		<http:listener doc:name="Listener" doc:id="12d21739-6665-4529-a0fc-e20d9418b1df" config-ref="HTTP_Listener_config" path="/api/test"/>
+		<logger level="INFO" doc:name="Logger" doc:id="4be18d6f-0cb1-4d75-b5f4-abd56ebc3124" message="********Helloooo from test-project *******"/>
+	</flow>
+</mule>
